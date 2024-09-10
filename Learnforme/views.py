@@ -6,27 +6,26 @@ from django.shortcuts import render
 
 def index(request):
     return render(request, 'index.html')
-
 def python(request):
-    return render(request, 'python.html')
+    return render(request, 'courses/python.html')
 
 def javascript(request):
-    return render(request, 'javascript.html')
+    return render(request, 'courses/javascript.html')
 
 def java(request):
-    return render(request, 'java.html')
+    return render(request, 'courses/java.html')
 
 def cpp(request):
-    return render(request, 'cpp.html')
+    return render(request, 'courses/cpp.html')
 
 def php(request):
-    return render(request, 'php.html')
+    return render(request, 'courses/php.html')
 
 def ruby(request):
-    return render(request, 'ruby.html')
+    return render(request, 'courses/ruby.html')
 
 def csharp(request):
-    return render(request, 'csharp.html')
+    return render(request, 'courses/csharp.html')
 
 def login(request):
     if request.method == 'POST':

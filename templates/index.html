@@ -292,16 +292,15 @@
         </div>
 
         <!-- Boutons des langages -->
-        <div class="languages" id="languageButtons">
-            <button onclick="window.location.href='python.html'">Python</button>
-            <button onclick="window.location.href='javascript.html'">JavaScript</button>
-            <button onclick="window.location.href='java.html'">Java</button>
-            <button onclick="window.location.href='cpp.html'">C++</button>
-            <button onclick="window.location.href='php.html'">PHP</button>
-            <button onclick="window.location.href='ruby.html'">Ruby</button>
-            <button onclick="window.location.href='csharp.html'">C#</button>
-        </div>
-    </div>
+<div class="languages" id="languageButtons">
+    <button onclick="window.location.href='{% url 'python' %}'">Python</button>
+    <button onclick="window.location.href='{% url 'javascript' %}'">JavaScript</button>
+    <button onclick="window.location.href='{% url 'java' %}'">Java</button>
+    <button onclick="window.location.href='{% url 'cpp' %}'">C++</button>
+    <button onclick="window.location.href='{% url 'php' %}'">PHP</button>
+    <button onclick="window.location.href='{% url 'ruby' %}'">Ruby</button>
+    <button onclick="window.location.href='{% url 'csharp' %}'">C#</button>
+</div>
 
     <!-- Bouton de retour -->
     <button class="back-button" onclick="goBack()">&#8592;</button>
