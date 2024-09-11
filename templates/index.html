@@ -327,7 +327,7 @@
     <div class="navbar-content">
         <div class="navbar-buttons"> 
             {% if user.is_authenticated %}
-                <button onclick="window.location.href='{% url 'profile' %}'">Profil</button>
+                <button onclick="window.location.href='{% url 'profile' %}'">Profil ({{ user_role }})</button>
                 <button onclick="window.location.href='{% url 'logout' %}'">Déconnexion</button>
             {% else %}
                 <button onclick="window.location.href='{% url 'login' %}'">Login</button>

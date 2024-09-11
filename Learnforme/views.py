@@ -1,11 +1,19 @@
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib import messages
 from django.shortcuts import render
 
+from Learnforme.models import UserProfile
+
+
 def index(request):
-    return render(request, 'index.html')
+    context = {}
+    if request.user.is_authenticated:
+        context['user_role'] = request.user.userprofile.role  # Use 'userprofile' instead of 'profile'
+    return render(request, 'index.html', context)
 def python(request):
     return render(request, 'courses/python.html')
 
@@ -30,6 +38,7 @@ def csharp(request):
 def haskell(request):
     return render(request, 'courses/haskell.html')
 
+# views.py
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -37,7 +46,7 @@ def login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             auth_login(request, user)
-            return redirect('index')  # Redirect to profile page after successful login
+            return redirect('index')
         else:
             messages.error(request, 'Nom d\'utilisateur ou mot de passe incorrect.')
     return render(request, 'login.html')
@@ -48,20 +57,28 @@ def createuser(request):
         email = request.POST['email']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
+        role = request.POST['role']
 
         if password1 == password2:
             if User.objects.filter(username=username).exists():
-                messages.error(request, 'Nom d\'utilisateur déjà pris.')
+                messages.error(request, 'Le nom d\'utilisateur existe déjà.')
             elif User.objects.filter(email=email).exists():
-                messages.error(request, 'Email déjà utilisé.')
+                messages.error(request, 'L\'email existe déjà.')
             else:
                 user = User.objects.create_user(username=username, email=email, password=password1)
-                user.save()
+                user_profile = UserProfile(user=user, role=role)
+                user_profile.save()
                 messages.success(request, 'Compte créé avec succès.')
-                return redirect('login')
+
+                # Authenticate and log in the user
+                user = authenticate(username=username, password=password1)
+                if user is not None:
+                    auth_login(request, user)
+                    return redirect('index')  # Redirect to the index page
         else:
             messages.error(request, 'Les mots de passe ne correspondent pas.')
     return render(request, 'createuser.html')
+
 
 def profile(request):
     return render(request, 'profile.html')
