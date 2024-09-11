@@ -1,0 +1,118 @@
+(Lire sur github pour une meilleure mise en page)
+# Groupe : GOLAM Tamim, Jabir Marwane, Ousmane Djire , Siddy DIALLO , Yanis MEKKAOUI
+
+# LearnForMe: Votre Parcours de Codage Commence Ici
+
+## Description
+
+LearnForMe est une plateforme d'apprentissage du code en ligne, construite avec Django. Elle offre aux étudiants une variété de ressources pour apprendre les langages de programmation, notamment :
+
+- **Leçons vidéo :** Des tutoriels vidéo engageants pour différents concepts.
+- **Ressources PDF :** Fichiers PDF téléchargeables pour un apprentissage approfondi.
+- **Cours interactifs :** Des cours structurés avec des quiz et des projets.
+- **Tests de codage :** Évaluez vos compétences avec des défis de codage pratiques. (Bientôt disponible)
+
+**Fonctionnalités clés :**
+
+- **Authentification utilisateur :** Système sécurisé d'inscription et de connexion.
+- **Profils utilisateur :**  Les étudiants peuvent suivre leurs progrès et gérer leur apprentissage.
+- **Accès basé sur les rôles :**  Différents rôles pour les étudiants, les enseignants et les administrateurs. (En développement)
+- **Interface engageante :**  Conception intuitive et conviviale pour une expérience d'apprentissage optimale.
+
+## Technologies utilisées
+
+- **Backend :** Python, Django
+- **Frontend :** HTML, CSS, JavaScript
+- **Base de données :** SQLite3 (Peut être facilement remplacé par PostgreSQL ou MySQL)
+
+## Structure du projet
+├── Learnforme/ <-- Application Django
+│ ├── init.py
+│ ├── admin.py
+│ ├── asgi.py
+│ ├── models.py
+│ ├── settings.py
+│ ├── signals.py
+│ ├── urls.py
+│ └── wsgi.py
+├── templates/ <-- Modèles HTML
+│ ├── index.html <-- Page d'accueil principale
+│ ├── login.html <-- Page de connexion utilisateur
+│ ├── createuser.html <-- Page d'inscription utilisateur
+│ └── profile.html <-- Profil utilisateur
+├── static/ <-- Fichiers statiques (CSS, JavaScript, Images)
+│ └── ...
+└── manage.py
+
+## Installation
+
+
+
+1.**Installation de l'environnement**
+ Python 3: LearnForMe est construit avec Django, qui nécessite Python 3.
+
+Vérifiez si Python 3 est installé: Ouvrez votre terminal et tapez python3 --version ou python --version. Si vous voyez un numéro de version commençant par 3, Python 3 est installé.
+Si Python 3 n'est pas installé:
+Téléchargez la dernière version de Python 3 depuis https://www.python.org/downloads/ et suivez les instructions d'installation pour votre système d'exploitation.
+
+Dans mon cas c'est Python 3.12.3
+
+2. **Cloner le repo :**
+git clone https://github.com/Tamim94/Learnforme.git
+
+
+3. **Création d'un environnement virtuel (fortement recommandé mais skip à l'étape 6 si vous voulez)**
+Un environnement virtuel isole les dépendances de votre projet, ce qui évite les conflits avec d'autres projets Python.
+
+Naviguez jusqu'au dossier du projet :
+
+cd Learnforme
+
+
+4.**Créez un environnement virtuel:**:
+
+python3 -m venv env
+
+5.**Activez l'environnement virtuel:**
+Sur Linux/macOS :
+source env/bin/activate
+Use code with caution.
+Bash
+Sur Windows :
+env\Scripts\activate
+
+
+Votre invite de commande devrait maintenant indiquer le nom de votre environnement virtuel ((env)).
+
+
+6.**Installation des dépendances**
+Assurez-vous que votre environnement virtuel est activé. Ensuite, installez les dépendances du projet à partir du fichier requirements.txt :
+pip install -r requirements.txt
+
+
+
+7.** Configuration de la base de données (Au cas ou) **
+Appliquez les migrations :
+python manage.py migrate
+
+
+8. **Lancement du serveur de développement**
+python manage.py runserver
+
+9. Ouvrez votre navigateur et accédez à l'url affichée dans le terminal (généralement http:// ou 127.)
+
+10. ** Vous devriez voir la page d'accueil de LearnForMe ! **
+A partir de là, vous pouvez vous inscrire, vous connecter et commencer à explorer les ressources d'apprentissage du code. Vous pourrez crée un compte etudiant ou enseignant ou administrateur.
+
+## Remarques
+Dans le cas ou vous avez pas pu crée un compte vous pourrez utiliser les comptes suivants:
+Nom d'utilisateur: root
+Mot de passe: root
+
+sinon vous pouvez crée un compte superuser en tapant la commande suivante:
+python manage.py createsuperuser
+
+
+**Si vous rencontrez des problèmes lors de l'installation, vérifiez que vous avez suivi correctement toutes les étapes et que vous disposez des versions correctes de Python, Django et des autres dépendances.
+N'hésitez pas à me/nous poser des questions si vous rencontrez des difficultés !**
+
