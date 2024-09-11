@@ -29,8 +29,8 @@ def cpp(request):
 def php(request):
     return render(request, 'courses/php.html')
 
-def ruby(request):
-    return render(request, 'courses/ruby.html')
+def c(request):
+    return render(request, 'courses/c.html')
 
 def csharp(request):
     return render(request, 'courses/csharp.html')

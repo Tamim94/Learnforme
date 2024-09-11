@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            color: #333;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        a {
+            display: block;
+            margin: 10px;
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        a:hover {
+            color: #45a049;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: transparent;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            color: rgba(0, 0, 0, 0.7);
+            padding: 10px 15px;
+            font-size: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+            border-color: rgba(0, 0, 0, 0.5);
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100px;
+            background-color: transparent;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            border-radius: 50px;
+            padding: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .theme-toggle span {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.7);
+            transition: color 0.3s ease;
+        }
+
+        body.dark-theme {
+            background-color: #333;
+            color: #f8f9fa;
+        }
+
+        a.dark-theme {
+            color: #4CAF50;
+        }
+
+        a.dark-theme:hover {
+            color: #45a049;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            color: #333;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1px;
+            margin: 50px auto;
+            max-width: 700px;
+            padding: 20px;
+        }
+
+        .video-container {
+            margin-top:  100px;
+            margin-bottom: 200px;
+            width: 100vh;
+            height: 20vh;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            margin: 50px auto;
+            max-width: 1000px;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #4CAF50;
+            text-decoration: none;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #45a049;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+    </style>
+</head>
+<body id="body">
+
+    <button class="back-button" onclick="goBack()">&#8592;</button>
+
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <span>Clair</span>
+        <span>Sombre</span>
+    </div>
+
+    <div class="main-container">
+        <div class="video-container">
+            <iframe width="70%" height="400" src="https://www.youtube.com/embed/rfscVS0vtbw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <h1>Documents PDF pour Python</h1>
+
+        <div class="container">
+            <a href="https://drive.google.com/file/d/1wEsVdHmhj3Q2W9IWVAwO1jXwFZLCSJtq/view?usp=sharing" target="_blank">Cours Python</a>
+            <a href="https://drive.google.com/file/d/12Tpf5yfxEaUyd773cU72JoDusV_7lnl_/view?usp=sharing" target="_blank">Exercice Python -partie 1</a>
+            <a href="https://drive.google.com/file/d/15hZLUgZ0mHjoukUJTmY6nFGQWQhKwbdb/view?usp=sharing" target="_blank">Exercice Python -partie 2 </a>
+            <a href="https://drive.google.com/file/d/15Qsx4D8lYFJRtFgPNO4jlX1EA7gQqOiE/view?usp=sharing" target="_blank">Evaluation Python</a>
+
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function toggleTheme() {
+            const body = document.getElementById('body');
+            const currentTheme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            applyTheme(newTheme);
+
+            localStorage.setItem('theme', newTheme);
+        }
+
+        function applyTheme(theme) {
+            const body = document.getElementById('body');
+            if (theme === 'light') {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+            } else {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+            }
+        }
+
+        window.onload = function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            applyTheme(savedTheme);
+        }
+    </script>
+
+</body>
+</html>

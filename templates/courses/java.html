@@ -11,22 +11,57 @@
             background-color: #f4f4f4;
             color: #333;
             transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .container {
-            margin-top: 50px;
-        }
-        a {
-            display: block;
-            margin: 10px;
-            color: #4CAF50;
-            text-decoration: none;
-            font-size: 18px;
-        }
-        a:hover {
-            color: #45a049;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* Bouton Retour */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1px;
+            margin: 50px auto;
+            max-width: 700px;
+            padding: 20px;
+        }
+
+        .video-container {
+            margin-top: 100px;
+            margin-bottom: 200px;
+            width: 100vh;
+            height: 20vh;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            margin: 50px auto;
+            max-width: 1000px;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #4CAF50;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #45a049;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
         .back-button {
             position: fixed;
             top: 20px;
@@ -47,7 +82,6 @@
             color: rgba(0, 0, 0, 0.9);
         }
 
-        /* Bouton de thème */
         .theme-toggle {
             position: fixed;
             top: 20px;
@@ -70,7 +104,6 @@
             transition: color 0.3s ease;
         }
 
-        /* Thème sombre */
         body.dark-theme {
             background-color: #333;
             color: #f8f9fa;
@@ -87,41 +120,42 @@
 </head>
 <body id="body">
 
-    <!-- Bouton de retour -->
     <button class="back-button" onclick="goBack()">&#8592;</button>
 
-    <!-- Toggle de thème -->
     <div class="theme-toggle" onclick="toggleTheme()">
         <span>Clair</span>
         <span>Sombre</span>
     </div>
 
-    <div class="container">
+    <div class="main-container">
+        <div class="video-container">
+            <iframe width="70%" height="400" src="https://www.youtube.com/embed/grEKMHGYyns" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+
         <h1>Documents PDF pour Java</h1>
-        <a href="pdfs/java1.pdf" target="_blank">Cours Java - Partie 1</a>
-        <a href="pdfs/java2.pdf" target="_blank">Cours Java - Partie 2</a>
+
+        <div class="container">
+            <a href="https://drive.google.com/file/d/1K85-qQ93sephFB9ZV_oW8Q-lSj47Q9ld/view?usp=sharing" target="_blank">Cours Java</a>
+            <a href="https://drive.google.com/file/d/1ZTovptT3QtR6rkknWs4tJKZxe5l-zg4M/view?usp=sharing" target="_blank">Cours Java - Partie 2</a>
+            <a href="https://drive.google.com/file/d/1MKFbenYR8glMqCO-_J3GiSHvgrC1Fm8T/view?usp=sharing" target="_blank">Evaluation</a>
+        </div>
     </div>
 
     <script>
-        // Fonction pour retourner à la page précédente
         function goBack() {
             window.history.back();
         }
 
-        // Gestion des thèmes avec bascule
         function toggleTheme() {
             const body = document.getElementById('body');
             const currentTheme = body.classList.contains('dark-theme') ? 'dark' : 'light';
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
-            // Appliquer le nouveau thème
             applyTheme(newTheme);
 
-            // Sauvegarder le thème dans le localStorage
             localStorage.setItem('theme', newTheme);
         }
 
-        // Fonction pour appliquer le thème
         function applyTheme(theme) {
             const body = document.getElementById('body');
             if (theme === 'light') {
@@ -133,12 +167,10 @@
             }
         }
 
-        // Charger le thème depuis le localStorage au chargement de la page
         window.onload = function() {
-            const savedTheme = localStorage.getItem('theme') || 'light'; // Par défaut, le thème clair
+            const savedTheme = localStorage.getItem('theme') || 'light';
             applyTheme(savedTheme);
         }
     </script>
-
 </body>
 </html>

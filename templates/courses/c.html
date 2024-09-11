@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruby</title>
+    <title>C</title>
     <style>
+
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -80,6 +81,65 @@
         a.dark-theme:hover {
             color: #45a049;
         }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            color: #333;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1px;
+            margin: 50px auto;
+            max-width: 700px;
+            padding: 20px;
+        }
+
+        .video-container {
+            margin-top:  100px;
+            margin-bottom: 200px;
+            width: 100vh;
+            height: 20vh;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            margin: 50px auto;
+            max-width: 1000px;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #4CAF50;
+            text-decoration: none;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #45a049;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
     </style>
 </head>
 <body id="body">
@@ -91,10 +151,21 @@
         <span>Sombre</span>
     </div>
 
-    <div class="container">
-        <h1>Documents PDF pour Ruby</h1>
-        <a href="pdfs/ruby1.pdf" target="_blank">Cours Ruby - Partie 1</a>
-        <a href="pdfs/ruby2.pdf" target="_blank">Cours Ruby - Partie 2</a>
+    <div class="main-container">
+        <div class="video-container">
+            <iframe width="70%" height="400" src="https://www.youtube.com/embed/KJgsSFOSQv0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <h1>Documents PDF pour C</h1>
+
+        <div class="container">
+            <a href="https://drive.google.com/file/d/1fyq7XovGflrXjfxqlSH-mcGKzlqfbTx_/view?usp=sharing" target="_blank">Cours C</a>
+            <a href="https://drive.google.com/file/d/1P9biepnupTZ2acYQ06zPK2G6k7ul7U7Y/view?usp=sharing" target="_blank">Exercice - partie 1</a>
+            <a href="https://drive.google.com/file/d/1JDZwjYLS0HnXrxpvH5G5n0z1mH1THUlg/view?usp=sharing" target="_blank">Exercice - Partie 2</a>
+            <a href="https://drive.google.com/file/d/1dDRT3TfQe3wksUCbNcKC5MN4-SBp29o1/view?usp=sharing" target="_blank">Evaluation Firtree</a>
+            <a href="https://drive.google.com/file/d/18SBn0aJ6V18tuDd2FmZ4-wD7zYLLGVHq/view?usp=sharing" target="_blank">Evaluation Jeu de Pong</a>
+            <a href="https://drive.google.com/file/d/1edojwMmtw9FtLZWZn5stfvyyBX1KYm3X/view?usp=sharing" target="_blank">Évaluation BSQ</a>
+        </div>
     </div>
 
     <script>
