@@ -32,6 +32,8 @@ urlpatterns = [
     path('csharp/', views.csharp, name='csharp'),
     path('login/', views.login, name='login'),
 
+    path('haskell/', views.haskell, name='haskell'),
+
     path('profile/', views.profile, name='profile'),
     path('logout/', auth_views.LogoutView.as_view(next_page='/'), name='logout'),
     path('createuser/', views.createuser, name='createuser'),  # Add this line

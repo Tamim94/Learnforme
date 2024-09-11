@@ -27,6 +27,9 @@ def ruby(request):
 def csharp(request):
     return render(request, 'courses/csharp.html')
 
+def haskell(request):
+    return render(request, 'courses/haskell.html')
+
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -62,4 +65,5 @@ def createuser(request):
 
 def profile(request):
     return render(request, 'profile.html')
+
 
