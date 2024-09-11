@@ -28,7 +28,7 @@ urlpatterns = [
     path('java/', views.java, name='java'),
     path('cpp/', views.cpp, name='cpp'),
     path('php/', views.php, name='php'),
-    path('ruby/', views.ruby, name='ruby'),
+    path('c/', views.c, name='c'),
     path('csharp/', views.csharp, name='csharp'),
     path('login/', views.login, name='login'),
 
