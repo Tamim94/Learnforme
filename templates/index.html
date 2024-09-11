@@ -18,16 +18,14 @@
             margin-top: 10px;
         }
 
-        /* Navbar sticky au centre de la page */
-    /* Navbar sticky en haut de la page */
 .navbar {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed; /* Remove fixed position */
+    position: fixed;
     top: 0;
     width: 99%;
-    background-color: rgba(255, 255, 255, 0.9); /* Make it slightly transparent */
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 10px 50px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     z-index: 1000;
@@ -77,7 +75,7 @@
     background-color: transparent;
     border: 2px solid rgba(0, 0, 0, 0.3);
     border-radius: 50px;
-    padding: 5px 15px; /* Adjust padding to fit in navbar */
+    padding: 5px 15px;
     cursor: pointer;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
@@ -88,8 +86,6 @@
     transition: color 0.3s ease;
 }
 
-
-        /* Couleur sombre */
         body.dark-theme {
             background-color: #333;
             color: #f8f9fa;
@@ -107,15 +103,14 @@
             align-items: center;
             width: 100%;
             max-width: 800px;
-            gap: 20px; 
+            gap: 20px;
         }
 
-        /* Bouton Login et Profil */
-        
+
 .navbar-content button {
     background-color: #1abc9c;
     color: white;
-    padding: 10px 20px; /* Larger padding for better spacing */
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -322,7 +317,6 @@
     </style>
 </head>
 <body id="body">
-<!-- Navbar sticky en haut de la page -->
 <nav class="navbar">
     <div class="navbar-content">
         <div class="navbar-buttons"> 
@@ -337,14 +331,12 @@
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="Rechercher un langage..." onkeyup="searchLang()">
         </div>
-        <!-- Toggle de thème déplacé à l'intérieur de la navbar -->
         <div class="theme-toggle" onclick="toggleTheme()">
             <span> Clair &nbsp</span> 
             <span> Sombre </span>
         </div>
     </div>
 </nav>
-    <!-- Hero section avec effet Parallax -->
     <div class="hero">
         <div class="hero-content">
             <h1>Apprenez à coder, un langage à la fois</h1>
@@ -352,7 +344,6 @@
         </div>
     </div>
 
-    <!-- Introduction -->
     <div class="container">
         <div class="intro">
             <h1>Bienvenue sur la Plateforme d'Apprentissage du Code</h1>
@@ -366,7 +357,6 @@
             </p>
         </div>
 
-        <!-- Boutons des langages -->
         {% if user.is_authenticated %}
             <div class="languages" id="languageButtons">
                 <button onclick="window.location.href='{% url 'python' %}'">Python</button>
@@ -390,7 +380,6 @@
 </div>
 
     <script>
-        // Fonction de recherche qui filtre les langages
         window.onscroll = function() {
             var navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
@@ -415,25 +404,20 @@
             }
         }
 
-        // Fonction pour retourner à la page précédente
         function goBack() {
             window.history.back();
         }
 
-        // Gestion des thèmes avec bascule
         function toggleTheme() {
             const body = document.getElementById('body');
             const currentTheme = body.classList.contains('dark-theme') ? 'dark' : 'light';
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
-            // Appliquer le nouveau thème
             applyTheme(newTheme);
 
-            // Sauvegarder le thème dans le localStorage
             localStorage.setItem('theme', newTheme);
         }
 
-        // Fonction pour appliquer le thème
         function applyTheme(theme) {
             const body = document.getElementById('body');
             if (theme === 'light') {
@@ -445,9 +429,8 @@
             }
         }
 
-        // Charger le thème depuis le localStorage au chargement de la page
         window.onload = function() {
-            const savedTheme = localStorage.getItem('theme') || 'light'; // Par défaut, le thème clair
+            const savedTheme = localStorage.getItem('theme') || 'light';
             applyTheme(savedTheme);
         }
     </script>
